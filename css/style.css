@@ -1,0 +1,364 @@
+:root {
+    /* Updated Theme Palette to match the modern Navbar */
+    --primary-blue: #2563eb;       /* Modern, high-contrast accessible blue */
+    --primary-blue-dark: #1d4ed8;  /* Hover state blue */
+    --primary-blue-soft: #dbeafe;  /* Soft blue background alerts ke liye */
+    --ink: #0f172a;                /* Deep slate black text ke liye */
+    --muted: #64748b;              /* Cool slate gray descriptive text */
+    --surface: #ffffff;
+    --surface-soft: #f8fafc;
+    --border: #cbd5e1;
+    --shadow-sm: 0 10px 25px rgba(15, 23, 42, 0.06);
+    --shadow-md: 0 18px 45px rgba(15, 23, 42, 0.1);
+    --radius-lg: 20px;
+    --radius-md: 14px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    /* Soft background gradient layout matching the professional theme */
+    background:
+        radial-gradient(circle at top left, rgba(37, 99, 235, 0.06), transparent 40rem),
+        linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    font-family: Inter, "Segoe UI", Roboto, Arial, sans-serif;
+    color: var(--ink);
+    line-height: 1.65;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+h1, h2, h3, h4, h5 {
+    color: var(--ink);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    text-align: center;
+}
+
+h1, h2, h3, h4 {
+    margin-top: 28px;
+    margin-bottom: 24px;
+}
+
+.container {
+    margin-bottom: 42px;
+}
+
+a {
+    color: var(--primary-blue);
+    text-decoration: none;
+    font-weight: 700;
+}
+
+a:hover {
+    color: var(--primary-blue-dark);
+    text-decoration: none;
+}
+
+/* Modern Accessible Navbar */
+.navbar {
+    padding: 0.85rem 1.25rem;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%) !important;
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.15);
+    position: sticky;
+    top: 0;
+    z-index: 1030;
+}
+
+.navbar .container-fluid,
+.navbar .container {
+    margin-bottom: 0;
+}
+
+.navbar-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: #ffffff !important;
+    font-size: 1.25rem;
+    font-weight: 900;
+    letter-spacing: -0.02em;
+}
+
+.navbar .nav-link {
+    color: rgba(255, 255, 255, 0.85) !important;
+    font-weight: 600;
+    border-radius: 999px;
+    padding: 0.55rem 1rem !important;
+    margin: 0.15rem 0.1rem;
+    transition: all 0.2s ease;
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-link:focus,
+.navbar .nav-link.active {
+    color: #ffffff !important;
+    background: rgba(255, 255, 255, 0.12);
+    transform: translateY(-1px);
+}
+
+/* Accessible focus outline indicator */
+.navbar .nav-link:focus,
+.form-control:focus,
+.btn:focus,
+[role="radio"]:focus {
+    outline: 3px solid #38bdf8 !important;
+    outline-offset: 2px;
+}
+
+.navbar-toggler {
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 12px;
+    box-shadow: none !important;
+}
+
+/* Cards and form layouts */
+.card,
+.search-container,
+form:not(.navbar form):not(.d-inline):not(.input-group) {
+    border: 1px solid rgba(229, 231, 235, 0.8);
+    border-radius: var(--radius-lg) !important;
+    background: rgba(255, 255, 255, 0.98);
+    box-shadow: var(--shadow-sm);
+}
+
+.card {
+    overflow: hidden;
+}
+
+.card-body {
+    padding: 2rem;
+}
+
+form:not(.navbar form):not(.d-inline):not(.input-group) {
+    padding: 1.5rem;
+}
+
+.card form:not(.navbar form):not(.d-inline):not(.input-group),
+.search-container form:not(.navbar form):not(.d-inline):not(.input-group),
+.table form,
+form.row,
+form.input-group {
+    padding: 0;
+    border: 0;
+    box-shadow: none;
+    background: transparent;
+}
+
+label,
+.form-label {
+    color: #334155;
+    font-size: 0.9rem;
+    font-weight: 800;
+    margin-bottom: 0.45rem;
+}
+
+.form-control,
+.form-select,
+select.form-control,
+textarea.form-control {
+    min-height: 46px;
+    color: #0f172a;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background-color: #ffffff;
+    box-shadow: 0 1px 2px rgba(15, 23, 42, 0.02);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+textarea.form-control {
+    min-height: 110px;
+}
+
+.form-control:focus,
+.form-select:focus,
+select.form-control:focus,
+textarea.form-control:focus {
+    border-color: var(--primary-blue);
+    box-shadow: 0 0 0 0.22rem rgba(37, 99, 235, 0.15);
+}
+
+.form-control::placeholder {
+    color: #94a3b8;
+}
+
+.form-group {
+    margin-bottom: 1.1rem;
+}
+
+/* ==========================================================================
+   NEW PREMIUM ACCESSIBLE BUTTONS DESIGN
+   ========================================================================== */
+.btn {
+    border-radius: 12px; /* Smooth professional rounded-md borders */
+    font-weight: 700;
+    padding: 0.65rem 1.4rem;
+    box-shadow: none;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.btn:hover {
+    transform: translateY(-1px);
+}
+
+/* Primary Action Buttons (Register, Submit, Search) */
+.btn-primary,
+.btn-search {
+    color: #ffffff !important;
+    border: 1px solid var(--primary-blue-dark) !important;
+    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%) !important;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+}
+
+.btn-primary:hover,
+.btn-search:hover {
+    background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%) !important;
+    box-shadow: 0 6px 20px rgba(29, 78, 216, 0.3);
+}
+
+/* Danger / Delete Action Buttons */
+.btn-danger {
+    color: #ffffff !important;
+    border: 1px solid #b91c1c !important;
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%) !important;
+    box-shadow: 0 4px 12px rgba(220, 38, 38, 0.2);
+}
+
+.btn-danger:hover {
+    background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%) !important;
+    box-shadow: 0 6px 20px rgba(153, 27, 27, 0.3);
+}
+
+/* Outline Interactive Buttons */
+.btn-outline-primary {
+    color: var(--primary-blue) !important;
+    border: 2px solid var(--primary-blue) !important;
+    background: transparent !important;
+}
+
+.btn-outline-primary:hover {
+    color: #ffffff !important;
+    background: var(--primary-blue) !important;
+}
+
+/* Form status alerts */
+.alert {
+    border: 0;
+    border-radius: 16px;
+    font-weight: 600;
+}
+
+.alert-danger {
+    background: #fee2e2;
+    color: #7f1d1d;
+}
+
+.alert-success {
+    background: #dcfce7;
+    color: #14532d;
+}
+
+/* Tables Layout structure */
+.table {
+    width: 100%;
+    overflow: hidden;
+    border-collapse: separate;
+    border-spacing: 0;
+    background-color: #ffffff;
+    border-radius: 16px;
+    box-shadow: var(--shadow-sm);
+}
+
+.table th,
+.table td {
+    padding: 0.95rem;
+    border-color: #e2e8f0 !important;
+    vertical-align: middle;
+}
+
+.table thead th {
+    color: #ffffff;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%) !important;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+/* ==========================================================================
+   DYNAMIC ACCESSIBILITY THEMES (WCAG Feature Integration)
+   ========================================================================== */
+
+/* 1. High Contrast Theme Configuration */
+body.theme-high-contrast {
+    background: #000000 !important;
+    color: #ffffff !important;
+}
+body.theme-high-contrast h1, 
+body.theme-high-contrast h2, 
+body.theme-high-contrast h3, 
+body.theme-high-contrast h4, 
+body.theme-high-contrast label,
+body.theme-high-contrast .form-label {
+    color: #ffff00 !important; 
+}
+body.theme-high-contrast .card,
+body.theme-high-contrast form,
+body.theme-high-contrast .navbar,
+body.theme-high-contrast .table {
+    background: #000000 !important;
+    border: 3px solid #ffffff !important;
+    box-shadow: none !important;
+}
+body.theme-high-contrast .form-control,
+body.theme-high-contrast .form-select {
+    background: #000000 !important;
+    color: #ffffff !important;
+    border: 2px solid #ffff00 !important;
+}
+body.theme-high-contrast .btn-primary,
+body.theme-high-contrast .btn {
+    background: #ffff00 !important;
+    color: #000000 !important;
+    font-weight: 900 !important;
+    border: 2px solid #ffffff !important;
+}
+body.theme-high-contrast .navbar .nav-link {
+    color: #ffffff !important;
+}
+
+/* 2. Dyslexia Friendly Theme Configuration */
+body.theme-dyslexia {
+    background: #fcf8f2 !important; 
+    font-family: 'OpenDyslexic', 'Comic Sans MS', 'Arial', sans-serif !important;
+    color: #1a1a1a !important;
+}
+body.theme-dyslexia .card,
+body.theme-dyslexia form {
+    background: #fffbf5 !important;
+    border-color: #e4dcd3 !important;
+}
+
+/* 3. Larger Text Configuration */
+body.text-large {
+    font-size: 130% !important; 
+}
+body.text-large .btn {
+    padding: 0.8rem 1.6rem !important;
+}
+
+/* Responsive UI Handling */
+@media (max-width: 991.98px) {
+    .navbar-collapse {
+        margin-top: 0.85rem;
+        padding: 0.75rem;
+        border-radius: 16px;
+        background: #1e293b;
+    }
+}
