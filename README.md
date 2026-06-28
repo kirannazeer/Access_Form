@@ -117,11 +117,4 @@ The current database includes the following tables:
 
 ---
 
-## 💡 Suggestions for Improvement
 
-- hash admin credentials
-- improve session management
-- add CSRF protection
-- add input validation and XSS protection
-- improve user role authorization
-- enhance accessibility logs visualization
