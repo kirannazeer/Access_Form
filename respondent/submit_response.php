@@ -53,8 +53,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $tmp_name = $_FILES['answers']['tmp_name'][$qid];
                 
                 if (move_uploaded_file($tmp_name, $upload_dir . $file_name)) {
+                    $file_answer = "FILE:" . $file_name;
                     $q_stmt = $conn->prepare("INSERT INTO form_answers (response_id, question_id, answer) VALUES (?, ?, ?)");
-                    $q_stmt->bind_param("iis", $response_id, $qid, "FILE:" . $file_name);
+                    $q_stmt->bind_param("iis", $response_id, $qid, $file_answer);
                     $q_stmt->execute();
                 }
             }

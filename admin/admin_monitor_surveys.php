@@ -26,14 +26,33 @@ if (isset($_GET['delete_id'])) {
     $form_id = (int)$_GET['delete_id'];
 
     // Delete related data first
-    $conn->prepare("DELETE FROM form_answers WHERE response_id IN (SELECT id FROM form_responses WHERE form_id = ?)")->execute([$form_id]);
-    $conn->prepare("DELETE FROM form_responses WHERE form_id = ?")->execute([$form_id]);
-    $conn->prepare("DELETE FROM questions WHERE form_id = ?")->execute([$form_id]);
-    
+    $stmt = $conn->prepare("DELETE fa FROM form_answers fa INNER JOIN form_responses fr ON fa.response_id = fr.id WHERE fr.form_id = ?");
+    if ($stmt) {
+        $stmt->bind_param("i", $form_id);
+        $stmt->execute();
+        $stmt->close();
+    }
+
+    $stmt = $conn->prepare("DELETE FROM form_responses WHERE form_id = ?");
+    if ($stmt) {
+        $stmt->bind_param("i", $form_id);
+        $stmt->execute();
+        $stmt->close();
+    }
+
+    $stmt = $conn->prepare("DELETE FROM questions WHERE form_id = ?");
+    if ($stmt) {
+        $stmt->bind_param("i", $form_id);
+        $stmt->execute();
+        $stmt->close();
+    }
+
     $stmt = $conn->prepare("DELETE FROM forms WHERE id = ?");
-    $stmt->bind_param("i", $form_id);
-    $stmt->execute();
-    $stmt->close();
+    if ($stmt) {
+        $stmt->bind_param("i", $form_id);
+        $stmt->execute();
+        $stmt->close();
+    }
 
     header("Location: admin_monitor_surveys.php");
     exit;

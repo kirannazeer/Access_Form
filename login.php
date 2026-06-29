@@ -85,6 +85,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <html lang="en">
 <head>
     <title>User Login</title>
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -104,6 +105,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="card-body p-4">
 
             <h3 class="text-center mb-2">User Login</h3>
+            
             <p class="text-center text-muted mb-4">Login to manage or fill access forms</p>
 
             <?php echo $login_msg; ?>
